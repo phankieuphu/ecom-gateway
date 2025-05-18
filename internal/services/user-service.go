@@ -35,7 +35,7 @@ func GetUser(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{
-		"user": res,
+		"user": res.User,
 	})
 	// rdbClient := GetRDBClient()
 	// user, err := rdbClient.Get(username)
@@ -118,7 +118,6 @@ func RegisterUser(c *gin.Context) {
 		})
 	}
 	c.JSON(http.StatusCreated, gin.H{
-		"message": registerUser.Message,
+		"message": registerUser.Status.Message,
 	})
-	return
 }
