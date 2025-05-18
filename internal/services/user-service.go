@@ -27,7 +27,11 @@ func GetUser(c *gin.Context) {
 
 	res, err := grpcClient.GetProfileUser(ctx, &userv1.GetProfileUserRequest{Name: c.Param("username")})
 	if err != nil {
-		log.Fatalf("error calling FetchUser: %v", err)
+		log.Println("Error calling GetProfileUser:", err)
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Failed to get user profile",
+		})
+		return
 	}
 
 	c.JSON(http.StatusOK, gin.H{

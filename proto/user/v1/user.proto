@@ -7,14 +7,19 @@ option go_package = "/services;services";
 service User {
   rpc GetProfileUser (GetProfileUserRequest) returns (GetProfileUserResponse);
   rpc RegisterUser (RegisterUserRequest) returns (RegisterUserResponse);
+  rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse);
+  rpc InactiveUser (InactiveUserRequest) returns (InactiveUserResponse);
 }
 
 message UserModels {
-  string Username = 1 [json_name="username"];
-  string Email = 2 [json_name="email"];
-  string  Address = 3 [json_name = "address"];
-  string PhoneNumber = 4 [json_name="phone_number"];
-  string Password = 5 [json_name="password"];
+  string ID = 1 [json_name="id"];
+  string Username = 2 [json_name="username"];
+  string Email = 3 [json_name="email"];
+  string  Address = 4 [json_name = "address"];
+  string PhoneNumber = 5 [json_name="phone_number"];
+  string Password = 6 [json_name="password"];
+ string DisplayName = 7 [json_name="display_name"];
+
 //  string google.protobuf.StringValue DisplayName = 5 [json_name=""]
 }
 
@@ -23,7 +28,8 @@ message GetProfileUserRequest {
 }
 
 message GetProfileUserResponse {
-  string message = 1;
+  UserModels user = 1 [json_name="user"];
+  string message = 2 [json_name="message"];
 }
 
 message RegisterUserRequest {
@@ -34,3 +40,9 @@ message RegisterUserResponse {
   string ID  = 1; 
   string Message = 2;
 }
+
+message UpdateUserRequest {}
+message UpdateUserResponse {}
+
+message InactiveUserRequest {}
+message InactiveUserResponse {}
