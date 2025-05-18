@@ -41,7 +41,7 @@ message RegisterUserResponse {
 }
 
 message UpdateUserRequest {
-  string id = 1 [json_name="id"];
+  string username = 1 [json_name="username"];
   optional string display_name = 2 [json_name="display_name"];
  optional string address =3 [json_name="address"];
  optional string password = 4 [json_name="password"];

@@ -307,7 +307,7 @@ func (x *RegisterUserResponse) GetStatus() *ResponseStatus {
 
 type UpdateUserRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Username      string                 `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
 	DisplayName   *string                `protobuf:"bytes,2,opt,name=display_name,proto3,oneof" json:"display_name,omitempty"`
 	Address       *string                `protobuf:"bytes,3,opt,name=address,proto3,oneof" json:"address,omitempty"`
 	Password      *string                `protobuf:"bytes,4,opt,name=password,proto3,oneof" json:"password,omitempty"`
@@ -345,9 +345,9 @@ func (*UpdateUserRequest) Descriptor() ([]byte, []int) {
 	return file_user_v1_user_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *UpdateUserRequest) GetId() string {
+func (x *UpdateUserRequest) GetUsername() string {
 	if x != nil {
-		return x.Id
+		return x.Username
 	}
 	return ""
 }
@@ -572,9 +572,9 @@ const file_user_v1_user_proto_rawDesc = "" +
 	"\x04user\x18\x01 \x01(\v2\x14.services.UserModelsR\x04user\"X\n" +
 	"\x14RegisterUserResponse\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x120\n" +
-	"\x06status\x18\x02 \x01(\v2\x18.services.ResponseStatusR\x06status\"\xb6\x01\n" +
-	"\x11UpdateUserRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12'\n" +
+	"\x06status\x18\x02 \x01(\v2\x18.services.ResponseStatusR\x06status\"\xc2\x01\n" +
+	"\x11UpdateUserRequest\x12\x1a\n" +
+	"\busername\x18\x01 \x01(\tR\busername\x12'\n" +
 	"\fdisplay_name\x18\x02 \x01(\tH\x00R\fdisplay_name\x88\x01\x01\x12\x1d\n" +
 	"\aaddress\x18\x03 \x01(\tH\x01R\aaddress\x88\x01\x01\x12\x1f\n" +
 	"\bpassword\x18\x04 \x01(\tH\x02R\bpassword\x88\x01\x01B\x0f\n" +
